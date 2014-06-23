@@ -33,6 +33,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
     commonwatir (4.0.0)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.3)
     geocoder (1.2.2)
@@ -76,6 +77,18 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.3.2)
+    rspec-core (2.14.8)
+    rspec-expectations (2.14.5)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.14.6)
+    rspec-rails (2.14.2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     rubyzip (1.1.3)
     selenium-webdriver (2.42.0)
       childprocess (>= 0.5.0)
@@ -118,5 +131,6 @@ DEPENDENCIES
   pry-rails
   rails (= 4.1.1)
   rails-api
+  rspec-rails
   spring
   watir
