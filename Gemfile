@@ -4,12 +4,6 @@ gem 'rails', '4.1.1'
 
 gem 'rails-api'
 
-group :development do
-  gem 'spring' 
-  gem 'pry' 
-  gem 'pry-rails'
-end
-
 gem 'pg'
 
 gem 'watir'
@@ -18,5 +12,12 @@ gem 'geocoder'
 
 gem 'rspec-rails'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :development do
+  gem 'spring' 
+  gem 'pry' 
+  gem 'pry-rails'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
