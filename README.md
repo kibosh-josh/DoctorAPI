@@ -1,9 +1,9 @@
 <h2>This is a public API for doctors and insurance information in San Francisco, CA,
 that I put together for my application <a>https://github.com/Joshua-Pearson/test_api</a>.<br></h2> 
 <h3>I started and finished this API as well as the project mentioned above, all in one week, for my final graduating project for 
-www.generalassemb.ly </h3><h4>I started by using <a>www.import.io</a>, which is an amazing piece of software, to scrape <a>www.healthpocket.com</a> 
+www.generalassemb.ly </h3><h4>I started by using <a>www.import.io</a>, which is an fabulous piece of software, to scrape <a>www.healthpocket.com</a> 
 for a basic list of doctors. However, I wasn't satisfied with the results which didn't seem completely accurate or up to date, 
-so I decided to take matters into my own hands and make my own ruby scripts that required <a>https://github.com/watir/watir</a> or <a> watir.com</a> 
+so I decided to take matters into my own hands and make my own ruby scripts that required <a>https://github.com/watir/watir</a> or (<a>www.watir.com</a>) 
 to scrape most of this information from <a>anthem.com</a> and <a>blueshieldca.com</a>. Special thanks to the Watir and Import.io people for making amazing products.</h4> 
 
 <p>The reason I put this API together is that with the new Affordable Care Act I think it is paramount that people
