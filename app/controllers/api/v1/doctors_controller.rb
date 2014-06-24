@@ -3,6 +3,7 @@ module Api
     class DoctorsController < ApplicationController
       include ActionController::ImplicitRender
       include ActionController::MimeResponds
+      before_filter :allow_cross_domain_access
       respond_to :json
       
       def index
@@ -29,6 +30,13 @@ module Api
         @doctors = Doctor.kaiser
         respond_with @doctors
       end
+
+      def allow_cross_domain_access
+        headers['Access-Control-Allow-Origin'] = '*'
+        headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
+        headers['Access-Control-Allow-Headers'] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(',')
+        headers['Access-Control-Max-Age'] = '1728000'
+      end 
     end
   end
 end
