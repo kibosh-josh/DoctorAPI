@@ -1,6 +1,7 @@
 <h2>This is a public API for doctors and insurance information in San Francisco, CA,
-that I put together for my application <a>https://github.com/Joshua-Pearson/test_api</a>.<br></h2> 
-<h3>I started and finished this API as well as the project mentioned above, all in one week, for my final graduating project for 
+that I put together for my application <a>doctorsearch.herokuapp.com</a><a>https://github.com/Joshua-Pearson/DoctorSearch</a>. This API is hosted
+for free to use as you see fit at <a>http://doctorstats.herokuapp.com/api/v1/</a><br>I'm still working on making
+my API more easily searchable.</h2><h3>I started and finished this API as well as the project mentioned above, all in one week, for my final graduating project for 
 www.generalassemb.ly </h3><h4>I started by using <a>www.import.io</a>, which is an fabulous piece of software, to scrape <a>www.healthpocket.com</a> 
 for a basic list of doctors. However, I wasn't satisfied with the results which didn't seem completely accurate or up to date, 
 so I decided to take matters into my own hands and make my own ruby scripts that required <a>https://github.com/watir/watir</a> or (<a>www.watir.com</a>) 
