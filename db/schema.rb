@@ -1,6 +1,5 @@
 ActiveRecord::Schema.define(version: 20140623020934) do
 
-  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "doctors", force: true do |t|
@@ -17,5 +16,4 @@ ActiveRecord::Schema.define(version: 20140623020934) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
 end
