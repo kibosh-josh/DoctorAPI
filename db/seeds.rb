@@ -26,7 +26,7 @@ until y == 5000
   city = browser.div(:id, "fap_" + x.to_s).span(:class, "docAddress").text.split("\n")[1].split(", ")[0].to_s
   zip_code = browser.div(:id, "fap_" + x.to_s).span(:class, "docAddress").text.split("\n")[1].split(", ")[1].split(" ")[1]
 
-  Doctor.create!(name: name, specialty: specialty, phone: phone, medical_group: medical_group, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_shield_bronze_60_PPO")
+  Doctor.find_or_create_by(name: name, specialty: specialty, phone: phone, medical_group: medical_group, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_shield_bronze_60_PPO")
   if y % 10 == 0
     x += 2
     browser.div(:id, "nextpage").click
