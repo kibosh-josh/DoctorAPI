@@ -55,16 +55,19 @@ will return only those doctors that accept Covered California that are included 
 http://doctorstats.herokuapp.com/api/v1/doctors.json?name=smith 
 ``
 <br>
-<p>this would return all doctors with first or last name of smith.</p><br>
-<br>
+this would return all doctors with first or last name of smith.
+<br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/cchp.json?specialty=Radiology
 ``
-<p> would return all doctors that specialize in Radiology that are included in the CCHP insurance plan.</p><br><br>
+<br>
+would return all doctors that specialize in Radiology that are included in the CCHP insurance plan.
+<br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_shield_EPO.json?medicalgroup=one%20medical%20plaza 
 ``
-<p>would include all doctors a part of that medical group that accept Blue Shield EPOs.</p>
+<br>
+would include all doctors a part of that medical group that accept Blue Shield EPOs.</p><br>
 
 <h5> If more than one search parameter is entered it will only search by the first parameter in order of importance as shown above. Also if the search parameter doesn't follow that syntax correctly, the search may display incorrect results.</h5><br><br>
 
