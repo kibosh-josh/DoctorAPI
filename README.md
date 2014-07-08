@@ -81,4 +81,4 @@ the health care industry. Transparency is crucial, we need an API available to a
 
 <p> This API, for the moment, only has data for the city of San Francisco in a 10-mile radius and only has information for the 4 biggest insurance providers that participate in Covered California (California's Department for the Affordable Care Act). The companies are Anthem Blue Cross, Blue Shield, Kaiser and Chinese Community Health Plan(CCHP). This API is searchable, in addition to the insurance policies, by doctor name, doctor specialty and doctor medical group.</p>
 
-<p>If you appreciate this work or would like help get a robust public health API started, please feel free to email me at <br><a>joshua.david.pearson@gmail.com</a><br> or connect via my linkedIn at<br><a>www.linkedin.com/in/joshuapears0n</a></p>
+<p>If you appreciate this work or would like help get a robust public health API started, please feel free to email me <br><a>joshua.david.pearson@gmail.com</a><br> or connect via my linkedIn at<br><a>www.linkedin.com/in/joshuapears0n</a></p>
