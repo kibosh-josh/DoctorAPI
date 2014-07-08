@@ -55,10 +55,11 @@ will return only those doctors that accept Covered California that are included 
 http://doctorstats.herokuapp.com/api/v1/doctors.json?name=smith 
 ``
 <br>
-<p>this would return all doctors with first or last name of smith.</p><br><br>
+<p>this would return all doctors with first or last name of smith.</p><br>
+<br>
 ``
 http://doctorstats.herokuapp.com/api/v1/cchp.json?specialty=Radiology
-`` 
+``
 <p> would return all doctors that specialize in Radiology that are included in the CCHP insurance plan.</p><br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_shield_EPO.json?medicalgroup=one%20medical%20plaza 
