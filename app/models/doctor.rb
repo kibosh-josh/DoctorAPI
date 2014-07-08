@@ -2,12 +2,8 @@ class Doctor < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: Proc.new { |a| a.latitude == nil || a.longitude == nil }
 
-  def self.cchp_HMO
-    Doctor.where("insurance_plan = ?", "cchp_bronze_60_HMO")
-  end
-  
-  def self.cchp_EPO
-    Doctor.where("insurance_plan = ?", "cchp_EPO")
+  def self.cchp
+    Doctor.where("insurance_plan = ?", "cchp")
   end
 
   def self.blue_cross_PPO_and_EPO

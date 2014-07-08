@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/doctors' => 'doctors#index'
-      get '/cchp' => 'doctors#cchp_HMO'
+      get '/cchp' => 'doctors#cchp'
       get '/blue_cross' => 'doctors#blue_cross'
       get '/blue_shield' => 'doctors#blue_shield_PPO'
       get '/kaiser' => 'doctors#kaiser_HMO'

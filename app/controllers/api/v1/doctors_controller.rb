@@ -25,21 +25,17 @@ module Api
         end
       end
 
-      def cchp_HMO
+      def cchp
         if params.include?("name")
           search = params["name"].titleize
-          doctors = Doctor.cchp_HMO.where("name like ?", "%#{search}%")
+          doctors = Doctor.cchp.where("name like ?", "%#{search}%")
           respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
-          doctors = Doctor.cchp_HMO.where("specialty like ?", "%#{search}%")
-          respond_with doctors, :except => [:id, :created_at, :updated_at]
-        elsif params.include?("medicalgroup")
-          search = params["medicalgroup"].titleize
-          doctors = Doctor.cchp_HMO.where("medical_group like ?", "%#{search}%")
+          doctors = Doctor.cchp.where("specialty like ?", "%#{search}%")
           respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
-          doctors = Doctor.cchp_HMO
+          doctors = Doctor.cchp
           respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end

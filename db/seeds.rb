@@ -88,6 +88,8 @@ until y == 3000
   x += 1
 end
 
+
+
 browser = Watir::Browser.start "http://www.Kaiserwebsite.com"
 browser.link(:id, "cydGoToSearch").when_present.click
 browser.radio({:id => "speciality", :value => "PED"}).when_present.set
