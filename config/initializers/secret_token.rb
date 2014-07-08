@@ -1,1 +1,0 @@
-DoctorAPI::Application.config.secret_token = '118596b5bda79daf59ea522ac8b4d44e97f5d6dcbf306319eb6bdd96cb604b8760ed0ca6c572ad1632e6509a53c2976740c03d78f3f35c0b00dab786a22440db'
