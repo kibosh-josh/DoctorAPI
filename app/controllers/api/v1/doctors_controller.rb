@@ -7,98 +7,155 @@ module Api
       respond_to :json
       
       def index
-        binding.pry
         if params.include?("name")
           search = params["name"].titleize
           doctors = Doctor.where("name like ?", "%#{search}%")
-          respond_with doctors
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
           doctors = Doctor.where("specialty like ?", "%#{search}%")
-          respond_with doctors
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("medicalgroup")
           search = params["medicalgroup"].titleize
           doctors = Doctor.where("medical_group like ?", "%#{search}%")
-          respond_with doctors
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
           doctors = Doctor.all
-          respond_with doctors
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
 
-      def cchp
+      def cchp_HMO
         if params.include?("name")
           search = params["name"].titleize
-          doctors = Doctor.cchp.where("name like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.cchp_HMO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
-          doctors = Doctor.cchp.where("specialty like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.cchp_HMO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("medicalgroup")
           search = params["medicalgroup"].titleize
-          doctors = Doctor.cchp.where("medical_group like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.cchp_HMO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
-          doctors = Doctor.cchp
-          respond_with doctors
+          doctors = Doctor.cchp_HMO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        end
+      end
+      
+      def cchp_EPO
+        if params.include?("name")
+          search = params["name"].titleize
+          doctors = Doctor.cchp_EPO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("specialty")
+          search = params["specialty"].titleize
+          doctors = Doctor.cchp_EPO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("medicalgroup")
+          search = params["medicalgroup"].titleize
+          doctors = Doctor.cchp_EPO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        else
+          doctors = Doctor.cchp_EPO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
 
       def blue_cross
         if params.include?("name")
           search = params["name"].titleize
-          doctors = Doctor.blue_cross.where("name like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_PPO_and_EPO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
-          doctors = Doctor.blue_cross.where("specialty like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_PPO_and_EPO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("medicalgroup")
           search = params["medicalgroup"].titleize
-          doctors = Doctor.blue_cross.where("medical_group like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_PPO_and_EPO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
-          doctors = Doctor.blue_cross
-          respond_with doctors
+          doctors = Doctor.blue_cross_PPO_and_EPO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
 
-      def blue_shield
+      def blue_cross_HMO
         if params.include?("name")
           search = params["name"].titleize
-          doctors = Doctor.blue_shield.where("name like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_HMO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
-          doctors = Doctor.blue_shield.where("specialty like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_HMO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("medicalgroup")
           search = params["medicalgroup"].titleize
-          doctors = Doctor.blue_shield.where("medical_group like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_cross_HMO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
-          doctors = Doctor.blue_shield
-          respond_with doctors
+          doctors = Doctor.blue_cross_HMO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
 
-      def kaiser
+      def blue_shield_PPO
+        binding.pry
         if params.include?("name")
           search = params["name"].titleize
-          doctors = Doctor.kaiser.where("name like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_shield_PPO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("specialty")
           search = params["specialty"].titleize
-          doctors = Doctor.kaiser.where("specialty like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_shield_PPO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         elsif params.include?("medicalgroup")
           search = params["medicalgroup"].titleize
-          doctors = Doctor.kaiser.where("medical_group like ?", "%#{search}%")
-          respond_with doctors
+          doctors = Doctor.blue_shield_PPO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         else
-          doctors = Doctor.kaiser
-          respond_with doctors
+          doctors = Doctor.blue_shield_PPO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        end
+      end
+
+      def blue_shield_EPO
+        if params.include?("name")
+          search = params["name"].titleize
+          doctors = Doctor.blue_shield_EPO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("specialty")
+          search = params["specialty"].titleize
+          doctors = Doctor.blue_shield_EPO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("medicalgroup")
+          search = params["medicalgroup"].titleize
+          doctors = Doctor.blue_shield_EPO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        else
+          doctors = Doctor.blue_shield_EPO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        end
+      end      
+
+      def kaiser_HMO
+        if params.include?("name")
+          search = params["name"].titleize
+          doctors = Doctor.kaiser_HMO.where("name like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("specialty")
+          search = params["specialty"].titleize
+          doctors = Doctor.kaiser_HMO.where("specialty like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        elsif params.include?("medicalgroup")
+          search = params["medicalgroup"].titleize
+          doctors = Doctor.kaiser_HMO.where("medical_group like ?", "%#{search}%")
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
+        else
+          doctors = Doctor.kaiser_HMO
+          respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
 

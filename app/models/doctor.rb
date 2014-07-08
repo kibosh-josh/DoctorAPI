@@ -2,20 +2,32 @@ class Doctor < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, if: Proc.new { |a| a.latitude == nil || a.longitude == nil }
 
-  def self.cchp
+  def self.cchp_HMO
     Doctor.where("insurance_plan = ?", "cchp_bronze_60_HMO")
   end
+  
+  def self.cchp_EPO
+    Doctor.where("insurance_plan = ?", "cchp_EPO")
+  end
 
-  def self.blue_cross
+  def self.blue_cross_PPO_and_EPO
     Doctor.where("insurance_plan = ?", "blue_cross_bronze_60_PPO")
   end
 
-  def self.blue_shield
+  def self.blue_cross_HMO
+    Doctor.where("insurance_plan = ?", "blue_cross_HMO")
+  end
+
+  def self.blue_shield_PPO
     Doctor.where("insurance_plan = ?", "blue_shield_bronze_60_PPO")
   end
+
+  def self.blue_shield_EPO
+    Doctor.where("insurance_plan = ?", "blue_shield_EPO")
+  end
   
-  def self.kaiser
-    Doctor.where("insurance_plan = ?", "kaiser_bronze_HMO_4500_40")
+  def self.kaiser_HMO
+    Doctor.where("insurance_plan = ?", "kaiser_HMO")
   end
 
   def full_address

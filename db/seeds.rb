@@ -1,9 +1,8 @@
-
-browser = Watir::Browser.start "https://www.thesiteIscraped.com"
+browser = Watir::Browser.start "https://www.blueshieldsite.com"
 browser.link(:text, "select").click
-browser.select_list(:id, "someId").when_present.select("2014 Individual and Family PPO Plans (including Covered California)")
-browser.select_list(:id, "someID").when_present.select("Basic PPO for HSA (Bronze level)")
-browser.button(:value,"anothervalue").click
+browser.select_list(:id, "whoops").when_present.select("2014 Individual and Family EPO Plans (including Covered California)")
+browser.select_list(:id, "dontgothere").when_present.select("Basic EPO (Bronze level)")
+browser.button(:value,"noway").click
 browser.text_field(:id, "location").set("94110")
 browser.button(:value,"findNow").click
 until browser.select_list(:id, "radiusid").exists?
@@ -13,7 +12,7 @@ browser.select_list(:id, "radiusid").select("10 mi.")
 
 y = 1
 x = 12
-until y == 5000
+until y == 920
   until
     browser.div(:id, "fap_" + x.to_s).exists?
     sleep 1
@@ -26,7 +25,7 @@ until y == 5000
   city = browser.div(:id, "fap_" + x.to_s).span(:class, "docAddress").text.split("\n")[1].split(", ")[0].to_s
   zip_code = browser.div(:id, "fap_" + x.to_s).span(:class, "docAddress").text.split("\n")[1].split(", ")[1].split(" ")[1]
 
-  Doctor.find_or_create_by(name: name, specialty: specialty, phone: phone, medical_group: medical_group, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_shield_bronze_60_PPO")
+  Doctor.find_or_create_by(name: name, specialty: specialty, phone: phone, medical_group: medical_group, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_shield_EPO")
   if y % 10 == 0
     x += 2
     browser.div(:id, "nextpage").click
@@ -37,10 +36,12 @@ until y == 5000
   end
 end
 
-browser = Watir::Browser.start "https://www.anothersitescraped.com"
+
+
+browser = Watir::Browser.start "https://www.bluecrosswebsite.com"
 sleep 5
 browser.select_list(:id, "aRidculousID").when_present.select("10")
-browser.text_field(:id, "ctl00_MainContent_maincontent_SearchWizard6_SearchWizard5_txtZipCityState").set("94110")
+browser.text_field(:id, "stupidID").set("94110")
 browser.select_list(:id, "ctl00_MainContent_maincontent_SearchWizard7_ddlplanstate").select("California")
 browser.select_list(:id, "ctl00_MainContent_maincontent_SearchWizard7_ddlplans").select("Pathway X - PPO / Individual via Exchange")
 browser.select_list(:id, "ctl00_MainContent_maincontent_SearchWizard7_ddlplan").select("Bronze DirectAccess")
@@ -82,44 +83,40 @@ until y == 3000
   city = browser.span(:id, "ctl00_ResultsList_ctrl" + x.to_s + "_lblCity").text.split(",").join
   zip_code = browser.span(:id, "ctl00_ResultsList_ctrl" + x.to_s + "_lblZipCode").text
 
-  Doctor.find_or_create_by(name: name, specialty: specialty, phone: phone, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_cross_bronze_60_PPO")
-  p x
-  p y
+  Doctor.find_or_create_by(name: name, specialty: specialty, phone: phone, address: address, city: city, zip_code: zip_code, insurance_plan: "blue_cross_EPO")
   y += 1
   x += 1
 end
-doctors_chinese_community = JSON.parse(File.read(chinese_community_health))
 
-doctors_blue_cross = JSON.parse(File.read(anthem_blue_cross))
+browser = Watir::Browser.start "http://www.Kaiserwebsite.com"
+browser.link(:id, "cydGoToSearch").when_present.click
+browser.radio({:id => "speciality", :value => "PED"}).when_present.set
+browser.text_field(:id, "zipcode").when_present.set("94110")
+browser.select_list(:id, "distance").select("15 miles")
+browser.link(:id, "cydSearchBtn").click
+sleep 3
 
-doctors_kaiser = JSON.parse(File.read(kaiser))
+x = 0
+y = 1
+until y == 78
+  
+  if y % 10 == 0
+    browser.link(:text, "Next »").click
+    x = 0
+    sleep 5
+  end
 
-doctors_blue_shield = JSON.parse(File.read(blue_shield))
+  processed_name = browser.div(:id, "CYDSearchContent").div({:class => "doctorInfo fLeft bt1 pb30", :index => x}).h3(:class, "title pb0i pl10 mb10 fLeft").text.split(" ")
+  name = processed_name[1] + " " + processed_name[0] + " " + processed_name[2]
+  phone = nil
+  medical_group = browser.div(:id, "CYDSearchContent").div({:class => "doctorInfo fLeft bt1 pb30", :index => x}).table.tbody.tr.div(:class, "bold").text
+  address = browser.div(:id, "CYDSearchContent").div({:class => "doctorInfo fLeft bt1 pb30", :index => x}).table.tbody.tr.div(:class, "mt5").text.split("\n")[1].strip
+  city = browser.div(:id, "CYDSearchContent").div({:class => "doctorInfo fLeft bt1 pb30", :index => x}).table.tbody.tr.div(:class, "mt5").text.split("\n")[2].split(",")[0].strip
+  zip_code = browser.div(:id, "CYDSearchContent").div({:class => "doctorInfo fLeft bt1 pb30", :index => x}).table.tbody.tr.div(:class, "mt5").text.split("\n")[2].split(",")[1].split(" ")[1]
 
-doctors_chinese_community["data"].each do |doctor|
-  last_name = doctor["name"].join("").split(",")[0].strip.titleize
-  first_name = doctor["name"].join("").split(",")[1].strip.titleize
-  address = doctor["address"].join
-  Doctor.create!(address: address, first_name: first_name, last_name: last_name, insurance_plan: "cchp_bronze_60_HMO")
-end
 
-doctors_blue_cross["data"].each do |doctor|
-  last_name = doctor["name"].join("").split(",")[0].strip.titleize
-  first_name = doctor["name"].join("").split(",")[1].strip.titleize
-  address = doctor["address"].join
-  Doctor.create!(address: address, first_name: first_name, last_name: last_name, insurance_plan: "blue_cross_bronze_60_PPO")
-end
+  Doctor.find_or_create_by(name: name, specialty: "Pediatrics", medical_group: medical_group, address: address, city: city, zip_code: zip_code, insurance_plan: "kaiser_HMO")
 
-doctors_kaiser["data"].each do |doctor|
-  last_name = doctor["name"].join("").split(",")[0].strip.titleize
-  first_name = doctor["name"].join("").split(",")[1].strip.titleize
-  address = doctor["address"].join
-  Doctor.create!(address: address, first_name: first_name, last_name: last_name, insurance_plan: "kaiser_bronze_HMO_4500_40")
-end
-
-doctors_blue_shield["data"].each do |doctor|
-  last_name = doctor["name"].join("").split(",")[0].strip.titleize
-  first_name = doctor["name"].join("").split(",")[1].strip.titleize
-  address = doctor["address"].join
-  Doctor.create!(address: address, first_name: first_name, last_name: last_name, insurance_plan: "blue_shield_bronze_60_PPO")
+  x += 1
+  y += 1
 end
