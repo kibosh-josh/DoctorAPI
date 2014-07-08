@@ -39,25 +39,6 @@ module Api
           respond_with doctors, :except => [:id, :created_at, :updated_at]
         end
       end
-      
-      def cchp_EPO
-        if params.include?("name")
-          search = params["name"].titleize
-          doctors = Doctor.cchp_EPO.where("name like ?", "%#{search}%")
-          respond_with doctors, :except => [:id, :created_at, :updated_at]
-        elsif params.include?("specialty")
-          search = params["specialty"].titleize
-          doctors = Doctor.cchp_EPO.where("specialty like ?", "%#{search}%")
-          respond_with doctors, :except => [:id, :created_at, :updated_at]
-        elsif params.include?("medicalgroup")
-          search = params["medicalgroup"].titleize
-          doctors = Doctor.cchp_EPO.where("medical_group like ?", "%#{search}%")
-          respond_with doctors, :except => [:id, :created_at, :updated_at]
-        else
-          doctors = Doctor.cchp_EPO
-          respond_with doctors, :except => [:id, :created_at, :updated_at]
-        end
-      end
 
       def blue_cross
         if params.include?("name")
