@@ -49,18 +49,27 @@ http://doctorstats.herokuapp.com/api/v1/kaiser.json
 <br>
 will return only those doctors that accept Covered California that are included in the Kaiser doctor directory website and accepting new patients.<br><br>
 
-<h5> Finally in addtion to making each insurance company searchable by route, this API also allows one search by doctor name, doctor specialty or doctor medical group. through url query parameters. A few sample GET requests would be</h5>
+<h5> Finally in addition to making each insurance company searchable by route, this API also allows one search by doctor name, doctor specialty or doctor medical group while still filtering by insurance, through url query parameters. A few sample GET requests would be</h5><br>
 
 ``
-http://doctorstats.herokuapp.com/api/v1/doctors.json?name=smith
+http://doctorstats.herokuapp.com/api/v1/doctors.json?name=smith 
+``
+<br>
+<p>this would return all doctors with first or last name of smith.</p><br><br>
+``
 http://doctorstats.herokuapp.com/api/v1/cchp.json?specialty=Radiology
-http://doctorstats.herokuapp.com/api/v1/blue_shield_EPO.json?medicalgroup=one%20medical%20%20plaza
+`` 
+<p> would return all doctors that specialize in Radiology that are included in the CCHP insurance plan.</p><br><br>
 ``
-<h5> If more than one search parameter is entered it will only search by the first parameter in order of importance as shown above. Also if the search parameter doesn't follow that syntax correctly, the search may display incorrect results.</h5>
+http://doctorstats.herokuapp.com/api/v1/blue_shield_EPO.json?medicalgroup=one%20medical%20plaza 
+``
+<p>would include all doctors a part of that medical group that accept Blue Shield EPOs.</p>
+
+<h5> If more than one search parameter is entered it will only search by the first parameter in order of importance as shown above. Also if the search parameter doesn't follow that syntax correctly, the search may display incorrect results.</h5><br><br>
 
 
-<h5>I started by using <a>www.import.io</a>, which is a fabulous piece of software, to scrape <a>www.healthpocket.com</a> for a basic list of doctors. However, I wasn't satisfied with the results which didn't seem completely accurate or up to date, 
-so I decided to take erase my database, take matters into my own hands and make my own ruby scripts that required <a>https://github.com/watir/watir</a> or (<a>www.watir.com</a>) to scrape most of this information from <a>https://www.anthem.com</a>, <a>https://www.blueshieldca.com</a>, <a>http://www.cchphmo.com/</a> and <a>https://healthy.kaiserpermanente.org</a>. Special thanks to the Watir and Import.io people for making amazing products.</h5> 
+<h6>I started building this API by using <a>www.import.io</a>, which is a fabulous piece of software, to scrape <a>www.healthpocket.com</a> for a basic list of doctors. However, I wasn't satisfied with the results which didn't seem completely accurate or up to date, 
+so I decided to take erase my database, take matters into my own hands and make my own ruby scripts that required <a>https://github.com/watir/watir</a> or (<a>www.watir.com</a>) to scrape most of this information from <a>https://www.anthem.com</a>, <a>https://www.blueshieldca.com</a>, <a>http://www.cchphmo.com/</a> and <a>https://healthy.kaiserpermanente.org</a>. Special thanks to the Watir and Import.io people for making amazing products.</h6> 
 
 <p>The inspiration behind putting this API together is that with the new Affordable Care Act I think it is paramount that people are aware of the doctors available for their specific health plan before deciding on what insurance plan to buy. Unfortunately the health care industry doesn't make this information easy to access, or have a public
 API that would facilitate better apps than this. Please help me push for more transparency in 
