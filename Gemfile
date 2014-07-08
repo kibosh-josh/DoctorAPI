@@ -13,7 +13,6 @@ gem 'geocoder'
 gem 'rspec-rails'
 
 group :development do
-  gem 'spring' 
   gem 'pry' 
   gem 'pry-rails'
 end
