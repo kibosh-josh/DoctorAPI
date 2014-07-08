@@ -79,7 +79,6 @@ module Api
       end
 
       def blue_shield_PPO
-        binding.pry
         if params.include?("name")
           search = params["name"].titleize
           doctors = Doctor.blue_shield_PPO.where("name like ?", "%#{search}%")
