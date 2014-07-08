@@ -5,3 +5,5 @@
 /log/*.log
 /tmp
 *.json
+*.yml
+secret_token.rb
