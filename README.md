@@ -1,5 +1,5 @@
 <h3>This is a public API for doctors and insurance information in a 10-mile radius of San Francisco, CA,
-that I put together for my application <a>www.covered-sf.com</a><br><a>https://github.com/Joshua-Pearson/DoctorSearch</a>.<br><br>
+that I put together for my application <a>www.covered-sf.com</a>,github,<br><a>https://github.com/Joshua-Pearson/DoctorSearch</a>.<br><br>
 
 I started and finished this API as well as the project mentioned above, all in one week, for my final graduating project for www.generalassemb.ly<br><br>
 
@@ -17,31 +17,31 @@ will return a list of every doctor accepting Covered California that I was able 
 http://doctorstats.herokuapp.com/api/v1/cchp.json
 ``
 <br>
-will return only those doctors that accept Covered California that I was able to scrape off of the Chinese Community Health Plan directory.
+will return only those doctors that accept Covered California that was in the Chinese Community Health Plan directory.
 <br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_cross.json
 ``
 <br>
-will return only those doctors that accept Covered California PPOs and EPOs that are included in the Blue Cross doctor directory website.
+will return only those doctors that accept Covered California PPOs and EPOs that are included in the Blue Cross online doctor directory.
 <br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_cross_HMO.json
 ``
 <br>
-will return only those doctors that accept Covered California HMOs that are included in the Blue Cross doctor directory website.
+will return only those doctors that accept Covered California HMOs that are included in the Blue Cross online doctor directory.
 <br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_shield.json
 ``
 <br>
-will return only those doctors that accept Covered California PPOs that are included in the Blue Shield doctor directory website.
+will return only those doctors that accept Covered California PPOs that are included in the Blue Shield online doctor directory.
 <br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/blue_shield_EPO.json
 ``
 <br>
-will return only those doctors that accept Covered California EPOs that are included in the Blue Shield doctor directory website. And finally
+will return only those doctors that accept Covered California EPOs that are included in the Blue Shield online doctor directory. And finally
 <br><br>
 ``
 http://doctorstats.herokuapp.com/api/v1/kaiser.json
