@@ -1,5 +1,5 @@
 <h3>This is a public API for doctors and insurance information in a 10-mile radius of San Francisco, CA,
-that I put together for my application <a>www.covered-sf.com</a>,github,<br><a>https://github.com/Joshua-Pearson/DoctorSearch</a>.<br><br>
+that I put together for my application <a>www.covered-sf.com</a>. github: <br><a>https://github.com/Joshua-Pearson/DoctorSearch</a>.<br><br>
 
 I started and finished this API as well as the project mentioned above, all in one week, for my final graduating project for www.generalassemb.ly<br><br>
 
