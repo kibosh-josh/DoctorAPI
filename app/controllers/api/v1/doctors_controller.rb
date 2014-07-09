@@ -140,7 +140,7 @@ module Api
         headers['Access-Control-Allow-Methods'] = 'GET, OPTIONS'
         headers['Access-Control-Allow-Headers'] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(',')
         headers['Access-Control-Max-Age'] = '1728000'
-      end 
+      end
     end
   end
 end
