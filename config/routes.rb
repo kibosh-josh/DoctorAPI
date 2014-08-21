@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root 'api/v1/doctors#index', defaults: {format: :json}
   namespace :api do
+    root 'v1/doctors#index', defaults: {format: :json}
     namespace :v1 do
       root 'doctors#index', defaults: {format: :json}
       get '/doctors' => 'doctors#index', defaults: {format: :json}
